@@ -2,7 +2,7 @@
 const CONFIG = {
   whatsapp: "263782109891",              // international format, no + or spaces
   phoneDisplay: "+263 78 210 9891",
-  email: "",                             // e.g. "info@chakafashions.com" once the forwarder is set up
+  email: "info@chakafashions.com",
   waGreeting: "Hello Chaka Fashions, I would like a quote.",
 };
 
