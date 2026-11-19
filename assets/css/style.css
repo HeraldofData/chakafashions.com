@@ -387,16 +387,3 @@ p { margin: 0 0 1em; }
   .ornament.orn-2 { height: 105px; width: 36px; right: 3%; }
   .xmas-inner { padding-top: 150px; }
 }
-
-/* ground + baobabs scale cleanly on any screen width */
-.xmas-ground { height: 120px; bottom: 14px; }
-.baobab { position: absolute; z-index: 1; bottom: 70px; height: auto; }
-.baobab-l { left: 8%; width: clamp(90px, 9vw, 150px); bottom: 86px; }
-.baobab-r { right: 16%; width: clamp(140px, 14vw, 240px); bottom: 74px; }
-@media (max-width: 1239px) { .baobab-r { right: 6%; } }
-@media (max-width: 700px) {
-  .xmas-ground { height: 90px; }
-  .baobab-l { width: 70px; left: 4%; bottom: 66px; }
-  .baobab-r { width: 110px; right: 4%; bottom: 58px; }
-}
-@media (min-width: 1240px) { .baobab-r { right: 24%; } }
