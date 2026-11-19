@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#2b1d14"/>
+  <!-- Great Zimbabwe–style chevrons -->
+  <path d="M12 26 L22 18 L32 26 L42 18 L52 26" fill="none" stroke="#d89a2b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 38 L22 30 L32 38 L42 30 L52 38" fill="none" stroke="#b4532a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 50 L22 42 L32 50 L42 42 L52 50" fill="none" stroke="#f3efe7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
