@@ -1,3 +1,6 @@
 .idea/
 *.iml
 .DS_Store
+
+# raw photos: kept local until the gallery is built
+photos/
