@@ -250,3 +250,153 @@ p { margin: 0 0 1em; }
   .nav-links.nav-simple { gap: .75em; }
   .nav-links.nav-simple a:not(.btn) { font-size: .85rem; }
 }
+
+/* ---------- Hero with seasonal side panel ---------- */
+.hero-grid { position: relative; display: grid; grid-template-columns: 1.35fr .9fr; gap: 56px; align-items: center; padding-bottom: clamp(56px, 8vw, 96px); }
+.hero-grid .hero-inner { text-align: left; padding-bottom: 0; }
+.hero-grid .lead { margin-left: 0; }
+.hero-grid .hero-actions, .hero-grid .hero-facts { justify-content: flex-start; }
+.hero-grid h1 { font-size: clamp(2.5rem, 5.6vw, 4.4rem); }
+.hero-facts { flex-direction: column; gap: 8px; }
+
+.season-panel { background: #fff; border-radius: var(--radius); box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 24px 48px -24px rgba(43,29,20,.25); overflow: hidden; }
+.season-top { height: 14px; background: var(--bg-alt) var(--chevron) repeat-x center / 28px 14px; }
+.season-head { padding: 26px 28px 18px; text-align: center; border-bottom: 1px solid var(--line); background-image: var(--diamond); background-size: 26px 26px; background-color: rgba(251,250,247,.92); background-blend-mode: lighten; }
+.season-tag { margin: 0 0 6px; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; color: var(--clay); }
+.season-title { margin: 0; font-family: Georgia, "Times New Roman", serif; font-style: italic; font-size: 1.3rem; line-height: 1.3; color: var(--ink); }
+.season-item { padding: 20px 28px 22px 52px; position: relative; }
+.season-item + .season-item { border-top: 1px solid var(--line); }
+.season-item::before { content: ""; position: absolute; left: 28px; top: 27px; width: 9px; height: 9px; background: var(--ochre); transform: rotate(45deg); }
+.season-item:first-of-type::before { background: var(--clay); }
+.season-item h3 { font-size: 1rem; margin-bottom: .25em; }
+.season-item p { color: var(--muted); font-size: .92rem; margin: 0 0 .5em; }
+.season-item a { font-weight: 600; font-size: .92rem; }
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+  .hero-grid .hero-inner { text-align: center; }
+  .hero-grid .lead { margin-left: auto; }
+  .hero-grid .hero-actions, .hero-grid .hero-facts { justify-content: center; align-items: center; }
+  .season-panel { max-width: 460px; width: 100%; margin: 0 auto; }
+}
+.season-panel { text-align: left; }
+.season-head { text-align: center; }
+.season-item::before { top: 26px; }
+.season-head + .season-item::before { background: var(--clay); }
+.season-item:first-of-type::before { background: var(--ochre); }
+.season-head + .season-item::before { background: var(--clay); }
+
+/* =========================================================
+   FESTIVE CAMPAIGN (active while <body class="season-christmas">)
+   ========================================================= */
+.xmas { display: none; }
+.season-christmas .hero-standard { display: none; }
+.season-christmas .xmas { display: block; }
+
+.xmas {
+  position: relative; overflow: hidden; color: #fff; text-align: center;
+  min-height: min(92vh, 760px);
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 38%, rgba(255,190,110,.28), transparent 70%),
+    radial-gradient(ellipse 120% 90% at 50% 0%, #d23a24 0%, #a91f16 45%, #6d0f0a 100%);
+}
+/* faint stars */
+.xmas::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 22%, #fff, transparent),
+    radial-gradient(1px 1px at 28% 12%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 44% 30%, #ffe9b0, transparent),
+    radial-gradient(1px 1px at 63% 16%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 78% 26%, #fff, transparent),
+    radial-gradient(1px 1px at 90% 10%, #ffe9b0, transparent),
+    radial-gradient(1px 1px at 6% 48%, #fff, transparent),
+    radial-gradient(1px 1px at 95% 44%, #fff, transparent);
+}
+
+/* string lights */
+.xmas-lights { position: absolute; top: 0; left: 0; width: 100%; height: 120px; z-index: 2; overflow: visible; }
+.bulb { animation: twinkle 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes twinkle { 0%,100% { opacity: 1; } 50% { opacity: .45; } }
+
+/* ornaments */
+.ornament { position: absolute; top: 0; width: 70px; z-index: 2; transform-origin: 50% 0; animation: swing 5s ease-in-out infinite; filter: drop-shadow(0 10px 14px rgba(0,0,0,.3)); }
+.orn-1 { left: 7%; height: 230px; }
+.orn-2 { right: 9%; height: 190px; width: 58px; animation-delay: -1.6s; }
+.orn-3 { right: 22%; height: 260px; width: 46px; animation-delay: -3s; display: none; }
+@keyframes swing { 0%,100% { transform: rotate(3deg); } 50% { transform: rotate(-3deg); } }
+@media (min-width: 1100px) { .orn-3 { display: block; } }
+
+/* content */
+.xmas-inner { position: relative; z-index: 3; padding: clamp(150px, 20vh, 190px) 22px 230px; max-width: 820px; }
+.xmas-eyebrow { font-size: .78rem; letter-spacing: .24em; text-transform: uppercase; font-weight: 600; color: #f3d27a; margin-bottom: 1.2em; }
+.xmas h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); font-weight: 700; letter-spacing: -.03em; line-height: 1.02; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,.25); }
+.xmas h1 em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-style: italic; letter-spacing: -.01em; color: #f3d27a; }
+.xmas-lead { font-size: clamp(1.05rem, 1.8vw, 1.25rem); color: rgba(255,255,255,.85); max-width: 36em; margin: 1.2em auto 2em; }
+.xmas-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+.btn-snow { background: #fff; color: #8e1a12; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.btn-snow .wa-icon { color: var(--wa); }
+.btn-snow:hover { background: #fff7e8; }
+.btn-line { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.6); }
+.btn-line:hover { background: rgba(255,255,255,.12); }
+.xmas-small { margin-top: 1.2em; font-size: .92rem; color: rgba(255,255,255,.7); }
+.xmas-small a { color: #f3d27a; }
+
+/* ground + baobab + band */
+.xmas-ground { position: absolute; left: 0; right: 0; bottom: 14px; width: 100%; height: 220px; z-index: 1; }
+.xmas-band { position: absolute; left: 0; right: 0; bottom: 0; height: 16px; z-index: 2; background: #3a0906 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='16' viewBox='0 0 32 16'%3E%3Cpath d='M0 12 L8 4 L16 12 L24 4 L32 12' fill='none' stroke='%23e9c46a' stroke-width='2.5'/%3E%3C/svg%3E") repeat-x center / 32px 16px; }
+
+/* snow */
+.xmas-snow { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.flake { position: absolute; top: -12px; border-radius: 50%; background: #fff; opacity: .85; animation: fall linear infinite; }
+@keyframes fall {
+  0%   { transform: translate3d(0, -10px, 0); }
+  100% { transform: translate3d(var(--drift, 30px), 110vh, 0); }
+}
+
+@media (max-width: 700px) {
+  .xmas-inner { padding: 130px 22px 190px; }
+  .orn-1 { left: 3%; height: 170px; width: 52px; }
+  .orn-2 { right: 4%; height: 140px; width: 44px; }
+  .xmas-ground { height: 150px; }
+  .xmas-actions .btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bulb, .ornament, .flake { animation: none !important; }
+  .xmas-snow { display: none; }
+}
+
+/* January reminder card */
+.jan-note {
+  position: absolute; z-index: 4; right: 3vw; top: 50%; width: 230px; text-align: left;
+  background: #fbf6ea; color: var(--ink); border-radius: 16px; padding: 22px 22px 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.28); transform: rotate(2deg);
+  border-top: 10px solid transparent;
+  border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Crect width='20' height='10' fill='%23b4532a'/%3E%3Cpath d='M0 8 L5 3 L10 8 L15 3 L20 8' fill='none' stroke='%23e9c46a' stroke-width='1.6'/%3E%3C/svg%3E") 10 0 0 0 / 10px 0 0 0 round;
+}
+.jan-tag { margin: 0 0 6px; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; color: var(--clay); }
+.jan-title { margin: 0 0 8px; font-family: Georgia, "Times New Roman", serif; font-style: italic; font-size: 1.3rem; line-height: 1.2; }
+.jan-text { margin: 0 0 12px; font-size: .86rem; color: var(--muted); line-height: 1.5; }
+.jan-note a { font-weight: 600; font-size: .9rem; color: var(--clay); }
+@media (max-width: 1239px) {
+  .jan-note { position: relative; right: auto; top: auto; transform: none; margin: -170px auto 200px; width: auto; max-width: 420px; }
+}
+@media (max-width: 700px) {
+  .jan-note { margin: -140px 22px 170px; }
+  .ornament.orn-1 { height: 120px; width: 40px; left: 2%; }
+  .ornament.orn-2 { height: 105px; width: 36px; right: 3%; }
+  .xmas-inner { padding-top: 150px; }
+}
+
+/* ground + baobabs scale cleanly on any screen width */
+.xmas-ground { height: 120px; bottom: 14px; }
+.baobab { position: absolute; z-index: 1; bottom: 70px; height: auto; }
+.baobab-l { left: 8%; width: clamp(90px, 9vw, 150px); bottom: 86px; }
+.baobab-r { right: 16%; width: clamp(140px, 14vw, 240px); bottom: 74px; }
+@media (max-width: 1239px) { .baobab-r { right: 6%; } }
+@media (max-width: 700px) {
+  .xmas-ground { height: 90px; }
+  .baobab-l { width: 70px; left: 4%; bottom: 66px; }
+  .baobab-r { width: 110px; right: 4%; bottom: 58px; }
+}
+@media (min-width: 1240px) { .baobab-r { right: 24%; } }
