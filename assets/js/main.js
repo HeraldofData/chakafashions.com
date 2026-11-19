@@ -24,7 +24,7 @@ const CURRENCIES = [
 // ---------- Contact links ----------
 const waLink = (text) => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`;
 document.querySelectorAll(".js-whatsapp").forEach(a => {
-  a.href = waLink(CONFIG.waGreeting);
+  a.href = waLink(a.dataset.waText || CONFIG.waGreeting);
   a.target = "_blank"; a.rel = "noopener";
 });
 document.querySelectorAll(".js-tel").forEach(a => a.href = `tel:+${CONFIG.whatsapp}`);

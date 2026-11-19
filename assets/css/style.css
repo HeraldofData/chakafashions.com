@@ -228,3 +228,45 @@ p { margin: 0 0 1em; }
   .nav-links.nav-simple a:not(.btn) { padding: 0; border: 0; font-size: .92rem; }
 }
 @media (max-width: 420px) { .tiles.four { grid-template-columns: 1fr; } .nav-links.nav-simple { gap: .9em; } }
+
+/* ---------- Hero facts ---------- */
+.hero-facts { list-style: none; padding: 0; margin: 28px 0 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 26px; font-size: .92rem; color: var(--ink); }
+.hero-facts li { display: flex; align-items: center; gap: 9px; }
+.hero-facts li::before { content: ""; width: 7px; height: 7px; background: var(--clay); transform: rotate(45deg); }
+
+/* ---------- Proud to supply ---------- */
+.clients { border-bottom: 1px solid var(--line); padding: 26px 0; }
+.clients-inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 14px 40px; }
+.clients-label { margin: 0; font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.clients-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 40px; }
+.clients-list li { display: flex; align-items: baseline; gap: 8px; }
+.clients-list strong { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 1.25rem; letter-spacing: .01em; color: var(--ink); }
+.clients-list span { font-size: .78rem; color: var(--clay); }
+
+/* ---------- Seasonal cards ---------- */
+.season { padding: clamp(48px, 7vw, 80px) 0 0; }
+.season-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.season-card { position: relative; overflow: hidden; border-radius: var(--radius); padding: clamp(32px, 4vw, 48px); min-height: 300px; display: flex; flex-direction: column; }
+.season-card h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
+.season-card p { max-width: 30em; }
+.season-tag { font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; margin-bottom: 1.2em; }
+.season-link { margin-top: auto; font-weight: 600; }
+.season-link:hover { text-decoration: none; opacity: .8; }
+.season-card::after { content: ""; position: absolute; right: -40px; bottom: -40px; width: 220px; height: 220px; opacity: .35; pointer-events: none; background-image: var(--diamond); background-size: 30px 30px; border-radius: 50%; }
+.season-school { background: var(--earth); color: #f3efe7; }
+.season-school p:not(.season-tag) { color: rgba(243,239,231,.72); }
+.season-school .season-tag, .season-school .season-link { color: var(--ochre); }
+.season-xmas { background: #1f3a2e; color: #f3efe7; }
+.season-xmas p:not(.season-tag) { color: rgba(243,239,231,.72); }
+.season-xmas .season-tag, .season-xmas .season-link { color: #e9c46a; }
+.season-xmas::after { background-image: radial-gradient(circle, rgba(233,196,106,.9) 1.6px, transparent 2px); background-size: 16px 16px; }
+@media (max-width: 760px) { .season-grid { grid-template-columns: 1fr; } .season-card { min-height: 0; } .season-link { margin-top: 1em; } }
+.season-card > * { position: relative; z-index: 1; }
+.season-card::after { z-index: 0; opacity: .18; right: -60px; bottom: -60px; }
+.brand span { white-space: nowrap; }
+@media (max-width: 420px) {
+  .brand { font-size: 1rem; gap: .45em; }
+  .brand img { width: 28px; height: 28px; }
+  .nav-links.nav-simple { gap: .75em; }
+  .nav-links.nav-simple a:not(.btn) { font-size: .85rem; }
+}
