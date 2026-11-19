@@ -94,3 +94,54 @@ Currency: ${current}
 Details: ${d.details || "-"}`;
   window.open(waLink(msg), "_blank", "noopener");
 });
+
+// ---------- Festive campaign: lights + snow ----------
+(function () {
+  const wire = document.getElementById("lightWire");
+  const bulbs = document.getElementById("bulbs");
+  if (!wire || !bulbs || !document.body.classList.contains("season-christmas")) return;
+
+  // Fit the light string to the real screen width so bulbs stay round
+  const svg = wire.ownerSVGElement;
+  const W = Math.max(svg.clientWidth, 320);
+  const sag = W < 700 ? 55 : 95, swags = W < 700 ? 2 : 3, step = W / swags;
+  let d = `M-10 18`;
+  for (let k = 0; k < swags; k++) {
+    const x0 = k * step, x1 = x0 + step;
+    d += ` C ${x0 + step * 0.35} ${sag}, ${x1 - step * 0.35} ${sag}, ${x1 + (k === swags - 1 ? 10 : 0)} ${k === swags - 1 ? 18 : 22}`;
+  }
+  wire.setAttribute("d", d);
+  svg.setAttribute("viewBox", `0 0 ${W} 120`);
+
+  const ns = "http://www.w3.org/2000/svg";
+  const colours = ["#ffd66b", "#ffffff", "#7fe0a0", "#ffb36b", "#ffd66b"];
+  const len = wire.getTotalLength();
+  const count = Math.round(W / 38);
+  for (let i = 1; i < count; i++) {
+    const pt = wire.getPointAtLength((len / count) * i);
+    const c = colours[i % colours.length];
+    const glow = document.createElementNS(ns, "circle");
+    glow.setAttribute("cx", pt.x); glow.setAttribute("cy", pt.y + 9);
+    glow.setAttribute("r", 14); glow.setAttribute("fill", c); glow.setAttribute("opacity", ".22");
+    glow.setAttribute("class", "bulb"); glow.style.animationDelay = `${-(i * 0.37) % 2.4}s`;
+    const bulb = document.createElementNS(ns, "ellipse");
+    bulb.setAttribute("cx", pt.x); bulb.setAttribute("cy", pt.y + 9);
+    bulb.setAttribute("rx", 4.5); bulb.setAttribute("ry", 6.5); bulb.setAttribute("fill", c);
+    bulb.setAttribute("class", "bulb"); bulb.style.animationDelay = glow.style.animationDelay;
+    bulbs.append(glow, bulb);
+  }
+
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const snow = document.querySelector(".xmas-snow");
+  const flakes = innerWidth < 700 ? 35 : 70;
+  for (let i = 0; i < flakes; i++) {
+    const f = document.createElement("span");
+    const size = 2 + Math.random() * 4;
+    f.className = "flake";
+    f.style.cssText = `left:${Math.random() * 100}%;width:${size}px;height:${size}px;` +
+      `opacity:${0.4 + Math.random() * 0.5};--drift:${(Math.random() * 80 - 40).toFixed(0)}px;` +
+      `animation-duration:${(8 + Math.random() * 10).toFixed(1)}s;animation-delay:${(-Math.random() * 18).toFixed(1)}s;` +
+      (size > 4.5 ? "filter:blur(1px);" : "");
+    snow.appendChild(f);
+  }
+})();
