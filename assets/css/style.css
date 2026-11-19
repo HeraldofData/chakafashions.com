@@ -291,7 +291,7 @@ p { margin: 0 0 1em; }
    ========================================================= */
 .xmas { display: none; }
 .season-christmas .hero-standard { display: none; }
-.season-christmas .xmas { display: block; }
+.season-christmas #hero-christmas { display: block; }
 
 .xmas {
   position: relative; overflow: hidden; color: #fff; text-align: center;
@@ -387,3 +387,6 @@ p { margin: 0 0 1em; }
   .ornament.orn-2 { height: 105px; width: 36px; right: 3%; }
   .xmas-inner { padding-top: 150px; }
 }
+
+/* original (simpler times) hero: facts in one row, centred */
+.hero-standard .hero-facts { flex-direction: row; justify-content: center; gap: 8px 26px; }

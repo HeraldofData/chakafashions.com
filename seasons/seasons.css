@@ -1,0 +1,32 @@
+/* =========================================================
+   SEASONS — styles for each seasonal hero
+   (Christmas styles live in assets/css/style.css and are unchanged)
+   ========================================================= */
+
+/* show only the active season; the original hero hides while one is active */
+.season-january .hero-standard { display: none; }
+.season-january #hero-january { display: block; }
+
+/* ---------- JANUARY / BACK TO SCHOOL ---------- */
+.jan {
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(233,196,106,.22), transparent 70%),
+    radial-gradient(ellipse 120% 90% at 50% 0%, #2f7a55 0%, #1d5a3d 45%, #0e3323 100%);
+}
+.jan .xmas-band { background-color: #0b2a1c; }
+.jan .btn-snow { color: #1d5a3d; }
+.jan .btn-snow:hover { background: #f3fbf6; }
+.jan .jan-tag, .jan .jan-note a { color: #1d5a3d; }
+.jan .jan-note::before { background-color: #1d5a3d; }
+
+.jan-bunting { height: 130px; }
+.flag { transform-box: fill-box; transform-origin: 50% 0; animation: flutter 3s ease-in-out infinite; filter: drop-shadow(0 4px 4px rgba(0,0,0,.18)); }
+@keyframes flutter { 0%,100% { transform: rotate(2.5deg); } 50% { transform: rotate(-2.5deg); } }
+
+.confetti { border-radius: 1px; animation-name: confetti-fall; }
+@keyframes confetti-fall {
+  0%   { transform: translate3d(0, -10px, 0) rotate(0); }
+  100% { transform: translate3d(var(--drift, 30px), 110vh, 0) rotate(var(--spin, 360deg)); }
+}
+
+@media (prefers-reduced-motion: reduce) { .flag, .confetti { animation: none !important; } }

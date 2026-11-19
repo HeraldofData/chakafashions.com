@@ -11,8 +11,10 @@
   <meta property="og:description" content="School uniforms, workwear and corporate clothing. Order on WhatsApp.">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="seasons/seasons.css">
 </head>
-<body class="season-christmas">
+<body>
+<script src="seasons/seasons.js"></script>
 
 <div class="topbar">
   <div class="container topbar-inner">
@@ -40,10 +42,8 @@
 
 <main id="top">
 
-  <!-- FESTIVE CAMPAIGN HERO
-       Shown while <body> has class="season-christmas".
-       In January: remove that class and the normal hero comes back. -->
-  <section class="xmas" aria-label="Season's greetings">
+  <!-- ===== SEASON: CHRISTMAS (see seasons/seasons.js) ===== -->
+  <section class="xmas" id="hero-christmas" aria-label="Season's greetings">
     <div class="xmas-snow" aria-hidden="true"></div>
 
     <svg class="xmas-lights" viewBox="0 0 1200 140" preserveAspectRatio="none" aria-hidden="true">
@@ -122,10 +122,69 @@
     <div class="xmas-band" aria-hidden="true"></div>
   </section>
 
+  <!-- ===== SEASON: JANUARY / BACK TO SCHOOL (see seasons/seasons.js) ===== -->
+  <section class="xmas jan" id="hero-january" aria-label="Back to school">
+    <div class="xmas-snow jan-confetti" aria-hidden="true"></div>
+
+    <svg class="xmas-lights jan-bunting" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+      <path id="buntingWire" d="M-10 14 C 300 80, 900 80, 1210 14" fill="none" stroke="#0b2a1c" stroke-width="2"/>
+      <g id="flags"></g>
+    </svg>
+
+    <div class="container xmas-inner">
+      <p class="xmas-eyebrow">Happy New Year from Chaka Fashions</p>
+      <h1>Back to school.<br><em>Ready in style.</em></h1>
+      <p class="xmas-lead">Uniforms for the 2027 school year: shirts, tunics, blazers and jerseys in your school colours, with the badge embroidered. Ready in about 14 days.</p>
+      <div class="xmas-actions">
+        <a href="#" class="btn btn-snow js-whatsapp" data-wa-text="Hello Chaka Fashions, I would like to order school uniforms for 2027.">
+          <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg> Order uniforms
+        </a>
+        <a href="#prices" class="btn btn-line">See prices ›</a>
+      </div>
+      <p class="xmas-small">or call <a href="#" class="js-tel js-phone-text">+263 78 210 9891</a></p>
+    </div>
+
+    <aside class="jan-note" aria-label="Term reminder">
+      <p class="jan-tag">Friendly reminder</p>
+      <p class="jan-title">Term starts soon.</p>
+      <p class="jan-text">Uniforms take about 14 days to make. Order now so every learner is ready for the first day, not the second week.</p>
+      <a href="#" class="js-whatsapp" data-wa-text="Hello Chaka Fashions, I would like to order school uniforms before term starts.">Order now ›</a>
+    </aside>
+
+    <!-- baobabs at sunrise -->
+    <svg class="xmas-ground" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <g fill="#0b2a1c">
+        <path d="M0 190 C 200 160, 380 175, 600 168 C 820 160, 1000 175, 1200 158 L1200 220 L0 220 Z"/>
+        <g transform="translate(905 30)">
+          <path d="M70 160 C 74 120, 66 85, 62 62 L 118 62 C 114 85, 106 120, 110 160 Z"/>
+          <g fill="none" stroke="#0b2a1c" stroke-linecap="round">
+            <path d="M66 66 C 52 48, 34 40, 10 38" stroke-width="11"/>
+            <path d="M74 62 C 70 40, 62 24, 48 6" stroke-width="10"/>
+            <path d="M90 62 C 90 40, 92 22, 96 2" stroke-width="10"/>
+            <path d="M106 62 C 114 42, 124 30, 140 14" stroke-width="10"/>
+            <path d="M114 66 C 132 52, 152 46, 176 44" stroke-width="11"/>
+            <path d="M24 39 C 18 28, 18 20, 22 12" stroke-width="5"/>
+            <path d="M150 46 C 158 34, 160 26, 158 18" stroke-width="5"/>
+          </g>
+        </g>
+        <g transform="translate(150 95) scale(.55)">
+          <path d="M70 160 C 74 120, 66 85, 62 62 L 118 62 C 114 85, 106 120, 110 160 Z"/>
+          <g fill="none" stroke="#0b2a1c" stroke-linecap="round">
+            <path d="M66 66 C 52 48, 34 40, 10 38" stroke-width="11"/>
+            <path d="M80 62 C 76 40, 70 24, 58 8" stroke-width="10"/>
+            <path d="M100 62 C 108 42, 118 30, 132 14" stroke-width="10"/>
+            <path d="M114 66 C 132 52, 152 46, 176 44" stroke-width="11"/>
+          </g>
+        </g>
+      </g>
+    </svg>
+    <div class="xmas-band" aria-hidden="true"></div>
+  </section>
+
+  <!-- ===== ORIGINAL (simpler times): shown when no season is active ===== -->
   <!-- 1. HERO -->
   <section class="hero hero-standard">
-    <div class="container hero-grid">
-    <div class="hero-inner">
+    <div class="container hero-inner">
       <p class="eyebrow">Made in Zimbabwe · Delivered across Southern Africa</p>
       <h1>Uniforms that last.<br><span class="accent">Made with pride.</span></h1>
       <p class="lead">School uniforms, workwear and corporate clothing. One piece or ten thousand.</p>
@@ -140,8 +199,6 @@
         <li>Single pieces to bulk orders</li>
         <li>Badges &amp; logos embroidered</li>
       </ul>
-    </div>
-
     </div>
     <div class="chevron-band" aria-hidden="true"></div>
   </section>
