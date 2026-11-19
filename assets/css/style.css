@@ -243,26 +243,6 @@ p { margin: 0 0 1em; }
 .clients-list strong { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 1.25rem; letter-spacing: .01em; color: var(--ink); }
 .clients-list span { font-size: .78rem; color: var(--clay); }
 
-/* ---------- Seasonal cards ---------- */
-.season { padding: clamp(48px, 7vw, 80px) 0 0; }
-.season-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.season-card { position: relative; overflow: hidden; border-radius: var(--radius); padding: clamp(32px, 4vw, 48px); min-height: 300px; display: flex; flex-direction: column; }
-.season-card h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
-.season-card p { max-width: 30em; }
-.season-tag { font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; margin-bottom: 1.2em; }
-.season-link { margin-top: auto; font-weight: 600; }
-.season-link:hover { text-decoration: none; opacity: .8; }
-.season-card::after { content: ""; position: absolute; right: -40px; bottom: -40px; width: 220px; height: 220px; opacity: .35; pointer-events: none; background-image: var(--diamond); background-size: 30px 30px; border-radius: 50%; }
-.season-school { background: var(--earth); color: #f3efe7; }
-.season-school p:not(.season-tag) { color: rgba(243,239,231,.72); }
-.season-school .season-tag, .season-school .season-link { color: var(--ochre); }
-.season-xmas { background: #1f3a2e; color: #f3efe7; }
-.season-xmas p:not(.season-tag) { color: rgba(243,239,231,.72); }
-.season-xmas .season-tag, .season-xmas .season-link { color: #e9c46a; }
-.season-xmas::after { background-image: radial-gradient(circle, rgba(233,196,106,.9) 1.6px, transparent 2px); background-size: 16px 16px; }
-@media (max-width: 760px) { .season-grid { grid-template-columns: 1fr; } .season-card { min-height: 0; } .season-link { margin-top: 1em; } }
-.season-card > * { position: relative; z-index: 1; }
-.season-card::after { z-index: 0; opacity: .18; right: -60px; bottom: -60px; }
 .brand span { white-space: nowrap; }
 @media (max-width: 420px) {
   .brand { font-size: 1rem; gap: .45em; }
@@ -270,3 +250,38 @@ p { margin: 0 0 1em; }
   .nav-links.nav-simple { gap: .75em; }
   .nav-links.nav-simple a:not(.btn) { font-size: .85rem; }
 }
+
+/* ---------- Hero with seasonal side panel ---------- */
+.hero-grid { position: relative; display: grid; grid-template-columns: 1.35fr .9fr; gap: 56px; align-items: center; padding-bottom: clamp(56px, 8vw, 96px); }
+.hero-grid .hero-inner { text-align: left; padding-bottom: 0; }
+.hero-grid .lead { margin-left: 0; }
+.hero-grid .hero-actions, .hero-grid .hero-facts { justify-content: flex-start; }
+.hero-grid h1 { font-size: clamp(2.5rem, 5.6vw, 4.4rem); }
+.hero-facts { flex-direction: column; gap: 8px; }
+
+.season-panel { background: #fff; border-radius: var(--radius); box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 24px 48px -24px rgba(43,29,20,.25); overflow: hidden; }
+.season-top { height: 14px; background: var(--bg-alt) var(--chevron) repeat-x center / 28px 14px; }
+.season-head { padding: 26px 28px 18px; text-align: center; border-bottom: 1px solid var(--line); background-image: var(--diamond); background-size: 26px 26px; background-color: rgba(251,250,247,.92); background-blend-mode: lighten; }
+.season-tag { margin: 0 0 6px; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; color: var(--clay); }
+.season-title { margin: 0; font-family: Georgia, "Times New Roman", serif; font-style: italic; font-size: 1.3rem; line-height: 1.3; color: var(--ink); }
+.season-item { padding: 20px 28px 22px 52px; position: relative; }
+.season-item + .season-item { border-top: 1px solid var(--line); }
+.season-item::before { content: ""; position: absolute; left: 28px; top: 27px; width: 9px; height: 9px; background: var(--ochre); transform: rotate(45deg); }
+.season-item:first-of-type::before { background: var(--clay); }
+.season-item h3 { font-size: 1rem; margin-bottom: .25em; }
+.season-item p { color: var(--muted); font-size: .92rem; margin: 0 0 .5em; }
+.season-item a { font-weight: 600; font-size: .92rem; }
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+  .hero-grid .hero-inner { text-align: center; }
+  .hero-grid .lead { margin-left: auto; }
+  .hero-grid .hero-actions, .hero-grid .hero-facts { justify-content: center; align-items: center; }
+  .season-panel { max-width: 460px; width: 100%; margin: 0 auto; }
+}
+.season-panel { text-align: left; }
+.season-head { text-align: center; }
+.season-item::before { top: 26px; }
+.season-head + .season-item::before { background: var(--clay); }
+.season-item:first-of-type::before { background: var(--ochre); }
+.season-head + .season-item::before { background: var(--clay); }
